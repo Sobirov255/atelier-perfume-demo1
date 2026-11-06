@@ -1,0 +1,4 @@
+const toggle=document.getElementById('toggle'),nav=document.getElementById('nav');
+toggle.addEventListener('click',()=>{nav.classList.toggle('open');toggle.textContent=nav.classList.contains('open')?'×':'☰'});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.textContent='☰'}));
+document.querySelectorAll('.filters button').forEach(btn=>btn.addEventListener('click',()=>{document.querySelector('.filters .active')?.classList.remove('active');btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.products article').forEach(card=>card.hidden=f!=='all'&&card.dataset.category!==f)}));
